@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Biodata ke Tabel</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #181c14;
+                margin: 0;
+                padding: 30px;
+            }
+
+            h2 {
+                color: white;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            form {
+                color: white;
+                background-color: #141a0d;
+                border-radius: 12px;
+                padding: 25px 30px;
+                max-width: 600px;
+                margin: 0 auto 30px auto;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            label {
+                display: block;
+                margin-top: 12px;
+                font-weight: 600;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                margin-top: 6px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: border-color 0.2s;
+            }
+
+            form input[type="submit"] {
+                background-color: #ff4d4d;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 15px;
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 18px;
+                transition: background-color 0.3s, transform 0.1s;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background-color: #fff;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            th,
+            td {
+                padding: 12px 14px;
+                border-bottom: 1px solid #e5e7eb;
+                text-align: left;
+            }
+
+            th {
+                background-color: #ff4d4d;
+                color: #fff;
+                font-weight: 600;
+            }
+
+            tbody {
+                background-color: #141a0d;
+                color: white;
+            }
+
+            .background-glow {
+                position: fixed;
+                width: 220px;
+                height: 220px;
+                background: radial-gradient(
+                    circle,
+                    #ff4d4d 0%,
+                    transparent 70%
+                );
+                filter: blur(120px);
+                opacity: 0.7;
+                z-index: 0;
+            }
+
+            .background-glow.top-right {
+                top: 0;
+                right: 0;
+            }
+
+            .background-glow.bottom-left {
+                bottom: 0;
+                left: 0;
+            }
+
+            .gender-options {
+                display: flex;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background-glow top-right"></div>
+        <div class="background-glow bottom-left"></div>
+
+        <h2>Form Biodata</h2>
+        <form id="biodataForm">
+            <label for="nim">NIM:</label>
+            <input type="text" id="nim" name="nim" required />
+
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required />
+
+            <label>Gender:</label>
+            <div class="gender-options">
+                <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="Male"
+                    required
+                    style="width: max-content"
+                />
+                <label for="male">Male</label>
+            </div>
+            <div class="gender-options">
+                <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="Female"
+                    style="width: max-content"
+                />
+                <label for="female">Female</label>
+            </div>
+
+            <label for="tempat_lahir">Tempat Lahir (Kota):</label>
+            <select name="tempat_lahir" id="tempat_lahir">
+                <option hidden>Isi Kota</option>
+                <option value="Denpasar">Denpasar</option>
+                <option value="Badung">Badung</option>
+                <option value="Tabanan">Tabanan</option>
+                <option value="Gianyar">Gianyar</option>
+                <option value="Klungkung">Klungkung</option>
+                <option value="Bangli">Bangli</option>
+                <option value="Karangasem">Karangasem</option>
+            </select>
+
+            <label for="tanggal_lahir">Tanggal Lahir:</label>
+            <input type="date" id="tanggal_lahir" name="tanggal_lahir" />
+
+            <label for="alamat">Alamat:</label>
+            <textarea id="alamat" name="alamat" rows="3"></textarea>
+
+            <label for="nohp">No. HP:</label>
+            <input type="tel" id="nohp" name="nohp" />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+
+            <label for="hobi">Hobi:</label>
+            <select name="hobi" id="hobi">
+                <option hidden>Isi Hobi</option>
+                <option value="Bermain musik">Bermain musik</option>
+                <option value="Menari">Menari</option>
+                <option value="Bermain futsal">Bermain futsal</option>
+                <option value="Memasak">Memasak</option>
+                <option value="Fotografi">Fotografi</option>
+                <option value="Melukis">Melukis</option>
+                <option value="Bersepeda">Bersepeda</option>
+                <option value="Membaca">Membaca</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Bernyanyi">Bernyanyi</option>
+                <option value="Mendaki">Mendaki</option>
+                <option value="Menulis">Menulis</option>
+                <option value="Renang">Renang</option>
+                <option value="Menonton film">Menonton film</option>
+                <option value="Bermain gitar">Bermain gitar</option>
+                <option value="Traveling">Traveling</option>
+                <option value="Bermain basket">Bermain basket</option>
+                <option value="Menjahit">Menjahit</option>
+                <option value="Memancing">Memancing</option>
+                <option value="Menari Bali">Menari Bali</option>
+            </select>
+
+            <input type="submit" value="Submit" />
+        </form>
+
+        <h2>Data yang Dimasukkan</h2>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Gender</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
+                    <th>No. HP</th>
+                    <th>Email</th>
+                    <th>Hobi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>240040001</td>
+                    <td>Made Arya Pradana</td>
+                    <td>Laki-laki</td>
+                    <td>Denpasar</td>
+                    <td>2000-03-15</td>
+                    <td>Jl. Melati No. 12</td>
+                    <td>08123450001</td>
+                    <td>arya.pradana@example.com</td>
+                    <td>Bermain musik</td>
+                </tr>
+                <tr>
+                    <td>240040002</td>
+                    <td>Ni Luh Ayu Pramesti</td>
+                    <td>Perempuan</td>
+                    <td>Badung</td>
+                    <td>2001-06-20</td>
+                    <td>Jl. Anggrek No. 5</td>
+                    <td>08123450002</td>
+                    <td>ayu.pramesti@example.com</td>
+                    <td>Menari</td>
+                </tr>
+                <tr>
+                    <td>240040003</td>
+                    <td>I Ketut Satria Wiguna</td>
+                    <td>Laki-laki</td>
+                    <td>Tabanan</td>
+                    <td>2000-12-05</td>
+                    <td>Jl. Nangka No. 8</td>
+                    <td>08123450003</td>
+                    <td>satria.wiguna@example.com</td>
+                    <td>Bermain futsal</td>
+                </tr>
+                <tr>
+                    <td>240040004</td>
+                    <td>Ni Kadek Dwi Lestari</td>
+                    <td>Perempuan</td>
+                    <td>Gianyar</td>
+                    <td>2002-04-12</td>
+                    <td>Jl. Mawar No. 10</td>
+                    <td>08123450004</td>
+                    <td>dwi.lestari@example.com</td>
+                    <td>Memasak</td>
+                </tr>
+                <tr>
+                    <td>240040005</td>
+                    <td>I Gusti Ngurah Krisna Adi</td>
+                    <td>Laki-laki</td>
+                    <td>Denpasar</td>
+                    <td>2000-10-30</td>
+                    <td>Jl. Kenanga No. 9</td>
+                    <td>08123450005</td>
+                    <td>krisna.adi@example.com</td>
+                    <td>Fotografi</td>
+                </tr>
+                <tr>
+                    <td>240040006</td>
+                    <td>Ni Komang Ayu Mertawati</td>
+                    <td>Perempuan</td>
+                    <td>Klungkung</td>
+                    <td>2001-02-18</td>
+                    <td>Jl. Seruni No. 2</td>
+                    <td>08123450006</td>
+                    <td>ayu.mertawati@example.com</td>
+                    <td>Melukis</td>
+                </tr>
+                <tr>
+                    <td>240040007</td>
+                    <td>I Made Yoga Saputra</td>
+                    <td>Laki-laki</td>
+                    <td>Bangli</td>
+                    <td>2000-07-25</td>
+                    <td>Jl. Dahlia No. 14</td>
+                    <td>08123450007</td>
+                    <td>yoga.saputra@example.com</td>
+                    <td>Bersepeda</td>
+                </tr>
+                <tr>
+                    <td>240040008</td>
+                    <td>Ni Luh Diah Kartika</td>
+                    <td>Perempuan</td>
+                    <td>Karangasem</td>
+                    <td>2002-11-03</td>
+                    <td>Jl. Angsoka No. 6</td>
+                    <td>08123450008</td>
+                    <td>diah.kartika@example.com</td>
+                    <td>Membaca</td>
+                </tr>
+                <tr>
+                    <td>240040009</td>
+                    <td>I Nyoman Bima Putra</td>
+                    <td>Laki-laki</td>
+                    <td>Badung</td>
+                    <td>2001-01-09</td>
+                    <td>Jl. Jepun No. 17</td>
+                    <td>08123450009</td>
+                    <td>bima.putra@example.com</td>
+                    <td>Gaming</td>
+                </tr>
+                <tr>
+                    <td>240040010</td>
+                    <td>Ni Kadek Sinta Dewi</td>
+                    <td>Perempuan</td>
+                    <td>Denpasar</td>
+                    <td>2001-05-27</td>
+                    <td>Jl. Kenari No. 3</td>
+                    <td>08123450010</td>
+                    <td>sinta.dewi@example.com</td>
+                    <td>Bernyanyi</td>
+                </tr>
+                <tr>
+                    <td>240040011</td>
+                    <td>I Wayan Dika Mahendra</td>
+                    <td>Laki-laki</td>
+                    <td>Gianyar</td>
+                    <td>2000-08-15</td>
+                    <td>Jl. Jempiring No. 11</td>
+                    <td>08123450011</td>
+                    <td>dika.mahendra@example.com</td>
+                    <td>Mendaki</td>
+                </tr>
+                <tr>
+                    <td>240040012</td>
+                    <td>Ni Luh Sri Utami</td>
+                    <td>Perempuan</td>
+                    <td>Tabanan</td>
+                    <td>2002-02-07</td>
+                    <td>Jl. Pucuk No. 4</td>
+                    <td>08123450012</td>
+                    <td>sri.utami@example.com</td>
+                    <td>Menulis</td>
+                </tr>
+                <tr>
+                    <td>240040013</td>
+                    <td>I Komang Ardi Pratama</td>
+                    <td>Laki-laki</td>
+                    <td>Bangli</td>
+                    <td>2001-09-23</td>
+                    <td>Jl. Cempaka No. 7</td>
+                    <td>08123450013</td>
+                    <td>ardi.pratama@example.com</td>
+                    <td>Renang</td>
+                </tr>
+                <tr>
+                    <td>240040014</td>
+                    <td>Ni Kadek Lestari Putu</td>
+                    <td>Perempuan</td>
+                    <td>Klungkung</td>
+                    <td>2000-12-14</td>
+                    <td>Jl. Anyelir No. 2</td>
+                    <td>08123450014</td>
+                    <td>lestari.putu@example.com</td>
+                    <td>Menonton film</td>
+                </tr>
+                <tr>
+                    <td>240040015</td>
+                    <td>I Made Rian Saputra</td>
+                    <td>Laki-laki</td>
+                    <td>Karangasem</td>
+                    <td>2002-06-11</td>
+                    <td>Jl. Sandat No. 15</td>
+                    <td>08123450015</td>
+                    <td>rian.saputra@example.com</td>
+                    <td>Bermain gitar</td>
+                </tr>
+                <tr>
+                    <td>240040016</td>
+                    <td>Ni Komang Putri Anggraini</td>
+                    <td>Perempuan</td>
+                    <td>Badung</td>
+                    <td>2001-03-04</td>
+                    <td>Jl. Mawar No. 19</td>
+                    <td>08123450016</td>
+                    <td>putri.anggraini@example.com</td>
+                    <td>Traveling</td>
+                </tr>
+                <tr>
+                    <td>240040017</td>
+                    <td>I Wayan Surya Dharma</td>
+                    <td>Laki-laki</td>
+                    <td>Denpasar</td>
+                    <td>2000-05-21</td>
+                    <td>Jl. Flamboyan No. 20</td>
+                    <td>08123450017</td>
+                    <td>surya.dharma@example.com</td>
+                    <td>Bermain basket</td>
+                </tr>
+                <tr>
+                    <td>240040018</td>
+                    <td>Ni Luh Desi Anjani</td>
+                    <td>Perempuan</td>
+                    <td>Tabanan</td>
+                    <td>2002-08-29</td>
+                    <td>Jl. Belimbing No. 13</td>
+                    <td>08123450018</td>
+                    <td>desi.anjani@example.com</td>
+                    <td>Menjahit</td>
+                </tr>
+                <tr>
+                    <td>240040019</td>
+                    <td>I Nyoman Adi Wirawan</td>
+                    <td>Laki-laki</td>
+                    <td>Gianyar</td>
+                    <td>2001-11-08</td>
+                    <td>Jl. Rambutan No. 16</td>
+                    <td>08123450019</td>
+                    <td>adi.wirawan@example.com</td>
+                    <td>Memancing</td>
+                </tr>
+                <tr>
+                    <td>240040020</td>
+                    <td>Ni Kadek Eka Yuliani</td>
+                    <td>Perempuan</td>
+                    <td>Bangli</td>
+                    <td>2000-01-30</td>
+                    <td>Jl. Mawar No. 22</td>
+                    <td>08123450020</td>
+                    <td>eka.yuliani@example.com</td>
+                    <td>Menari Bali</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
