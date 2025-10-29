@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    padding: 30px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    color: white;
+    background-color: #171717;
+    border-radius: 0.65rem;
+    padding: 25px 30px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.15);
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #434343;
+    border-radius: 0.65rem;
+    font-size: 14px;
+    background-color: #212121;
+    color: #fff;
+}
+
+form input[type="submit"] {
+    background-color: #1341d0;
+    color: #fff;
+    border: none;
+    border-radius: 0.65rem;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #171717;
+    border-radius: 0.65rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.15);
+}
+
+th,
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #434343;
+    text-align: left;
+}
+
+th {
+    background-color: #1341d0;
+    color: #fff;
+    font-weight: 600;
+}
+
+thead,
+tbody {
+    background-color: #171717;
+    color: white;
+}
+
+thead tr th {
+    text-align: center;
+}
+
+.background-glow {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #1341d0 0%, transparent 200%);
+    filter: blur(150px);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.background-glow.top-right {
+    top: 0;
+    right: 0;
+}
+
+.background-glow.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.gender-options input[type="radio"] {
+    margin: 0;
+}
+
+.gender-options label {
+    margin: 0;
+    cursor: pointer;
+}
